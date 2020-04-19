@@ -1,0 +1,7 @@
+<div class="card inline-card">
+    <img src="{{movie.Poster}}" class="card-img-top" (click) = "goToLink(getImdbLink(movie.imdbID))">
+    <div class="card-body">
+      <p class="card-title" style="font-size:auto; height: 30px;">{{movie.Title}}</p>
+      <p class="card-text">{{movie.imdbID}}</p>
+    </div>
+  </div>

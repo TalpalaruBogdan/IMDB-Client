@@ -1,0 +1,17 @@
+.containerDiv {
+    text-align: center;
+}
+
+.centrate {
+    text-align: center;
+}
+
+.topContainer{
+    padding: 0.5%;
+    margin: 0.5%;
+    background-color: burlywood;
+}
+
+button {
+    margin-bottom: 12px;
+}

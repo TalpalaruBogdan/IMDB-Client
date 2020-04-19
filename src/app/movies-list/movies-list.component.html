@@ -1,0 +1,15 @@
+<div class="containerDiv">
+    <div class="topContainer">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" placeholder="Search title..." aria-label="Search" aria-describedby="basic-addon1" [(ngModel)]="searchTerm"> 
+        </div>
+            <button class="btn btn-primary btn-sm" (click)="SearchTitle(searchTerm)">Search</button>
+    </div>
+    <br>
+    <div class="body">
+        <div *ngFor="let movie of movies" clas="cardContainer">
+            <app-movie [movie]="movie"></app-movie>
+        </div>
+    </div>
+    <h5>{{provider}}</h5>
+</div>
