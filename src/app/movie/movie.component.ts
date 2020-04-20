@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovieModel } from '../MovieModel';
+import {FormsModule} from '@angular/forms'
 
 @Component({
   selector: 'app-movie',

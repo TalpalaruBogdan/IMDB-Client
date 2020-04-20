@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, ElementFinder, element, By } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,9 +8,50 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should return results', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('IMDBClient app is running!');
+    element(By.tagName('input')).sendKeys("Alpha");
+    element(By.tagName('button')).click();
+    browser.driver.sleep(3000);
+    let resultsCount = element.all(By.className('card')).count();
+    console.log("found cards count: " + resultsCount)
+    expect(resultsCount).toBeGreaterThan(0);
+  });
+
+  it('should display film images', () => {
+    page.navigateTo();
+    element(By.tagName('input')).sendKeys("Alpha");
+    element(By.tagName('button')).click();
+    browser.driver.sleep(8000);
+    let results = element.all(By.className('card-img-top'));
+    console.log("found images count: " + results.count())
+    expect(results.count()).toBeGreaterThan(0);
+  });
+
+  it('should display film titles', () => {
+    page.navigateTo();
+    element(By.tagName('input')).sendKeys("Alpha");
+    element(By.tagName('button')).click();
+    browser.driver.sleep(8000);
+    let results = element.all(By.className('card-title'));
+    console.log("found cards title count: " + results.count())
+    expect(results.count()).toBeGreaterThan(0);
+  });
+
+  it('should navigate to imdb on click', () => {
+    page.navigateTo();
+    element(By.tagName('input')).sendKeys("Alpha");
+    element(By.tagName('button')).click();
+    let results = element(By.className('card'));
+    results.click();
+    browser.driver.sleep(8000);
+
+    browser.getAllWindowHandles().then(function (handles) {
+      expect(handles.length).toEqual(2);
+      browser.switchTo().window(handles[1]).then(function () {
+       expect(browser.driver.getCurrentUrl()).toContain('imdb.com');
+      });
+     });
   });
 
   afterEach(async () => {

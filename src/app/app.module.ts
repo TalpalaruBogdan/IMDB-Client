@@ -12,9 +12,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
     MoviesListComponent,
-    MovieComponent
+    MovieComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
