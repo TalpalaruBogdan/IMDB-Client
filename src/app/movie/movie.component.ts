@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms'
 })
 export class MovieComponent implements OnInit {
 
+  title = 'moviesTestComponentTitle'
   @Input() movie: MovieModel
 
   constructor() { }

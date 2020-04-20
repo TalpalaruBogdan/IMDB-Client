@@ -11,6 +11,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class MoviesListComponent implements OnInit {
 
+  title = 'moviesListTestComponentTitle'
   movies = [];
 
 
